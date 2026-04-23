@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neural-950: #020408;
+  --neural-900: #040b14;
+  --neural-800: #071525;
+  --neural-700: #0d2340;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-hover: rgba(255, 255, 255, 0.07);
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --emerald-400: #34d399;
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.55);
+  --text-tertiary: rgba(255, 255, 255, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--neural-950);
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─── NeuroGlass Utilities ───────────────────────────────────── */
+@layer components {
+  .glass-panel {
+    @apply rounded-2xl border border-white/[0.06] bg-white/[0.03];
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.04),
+      0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-panel-hover {
+    @apply glass-panel transition-all duration-300;
+  }
+  .glass-panel-hover:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07),
+      0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(34, 211, 238, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .btn-neural {
+    @apply relative overflow-hidden rounded-xl px-5 py-2.5 font-display font-semibold text-sm tracking-wide transition-all duration-200 active:scale-[0.97];
+  }
+
+  .btn-primary {
+    @apply btn-neural bg-cyan-500/20 text-cyan-400 border border-cyan-500/30;
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.08),
+      inset 0 1px 0 rgba(34, 211, 238, 0.12);
+  }
+  .btn-primary:hover {
+    @apply bg-cyan-500/30 border-cyan-500/50;
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.18),
+      inset 0 1px 0 rgba(34, 211, 238, 0.2);
+  }
+  .btn-primary:disabled {
+    @apply opacity-40 cursor-not-allowed;
+    box-shadow: none;
+  }
+
+  .btn-violet {
+    @apply btn-neural bg-violet-500/20 text-violet-400 border border-violet-500/30;
+    box-shadow: 0 0 15px rgba(167, 139, 250, 0.08),
+      inset 0 1px 0 rgba(167, 139, 250, 0.12);
+  }
+  .btn-violet:hover {
+    @apply bg-violet-500/30 border-violet-500/50;
+    box-shadow: 0 0 25px rgba(167, 139, 250, 0.18),
+      inset 0 1px 0 rgba(167, 139, 250, 0.2);
+  }
+  .btn-violet:disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+
+  .btn-emerald {
+    @apply btn-neural bg-emerald-500/20 text-emerald-400 border border-emerald-500/30;
+    box-shadow: 0 0 15px rgba(52, 211, 153, 0.08),
+      inset 0 1px 0 rgba(52, 211, 153, 0.12);
+  }
+  .btn-emerald:hover {
+    @apply bg-emerald-500/30 border-emerald-500/50;
+    box-shadow: 0 0 25px rgba(52, 211, 153, 0.18),
+      inset 0 1px 0 rgba(52, 211, 153, 0.2);
+  }
+  .btn-emerald:disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply btn-neural bg-transparent text-white/50 border border-white/[0.06];
+  }
+  .btn-ghost:hover {
+    @apply text-white/80 bg-white/[0.05] border-white/[0.1];
+  }
+  .btn-ghost:disabled {
+    @apply opacity-30 cursor-not-allowed;
+  }
+
+  .neural-select {
+    @apply w-full appearance-none rounded-xl border border-white/[0.08] bg-white/[0.04]
+      px-4 py-2.5 text-sm font-body text-white/80 outline-none
+      transition-all duration-200 cursor-pointer;
+    backdrop-filter: blur(12px);
+  }
+  .neural-select:hover {
+    @apply border-white/[0.14] bg-white/[0.06];
+  }
+  .neural-select:focus {
+    border-color: rgba(34, 211, 238, 0.4);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.08);
+  }
+  .neural-select option {
+    background-color: #071525;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .neural-textarea {
+    @apply w-full resize-none rounded-xl border border-white/[0.07] bg-transparent
+      px-4 py-3 font-mono text-sm text-white/85 outline-none
+      transition-all duration-200 placeholder:text-white/20;
+  }
+  .neural-textarea:focus {
+    border-color: rgba(34, 211, 238, 0.3);
+    box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.06);
+  }
+
+  .tag-badge {
+    @apply inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs font-display font-semibold tracking-wide;
+  }
+
+  .neural-divider {
+    @apply w-full border-t border-white/[0.06];
+  }
+
+  .scan-overlay {
+    @apply pointer-events-none absolute inset-0 overflow-hidden rounded-2xl;
+  }
+  .scan-overlay::after {
+    content: "";
+    @apply absolute left-0 right-0 h-16;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(34, 211, 238, 0.04) 50%,
+      transparent 100%
+    );
+    animation: scanLine 4s linear infinite;
+  }
+}
+
+/* ─── Syntax Highlight Override ─────────────────────────────── */
+pre[class*="language-"],
+code[class*="language-"] {
+  background: transparent !important;
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+  text-shadow: none !important;
+}
+
+.token.comment { color: rgba(255, 255, 255, 0.28) !important; font-style: italic; }
+.token.keyword { color: #a78bfa !important; }
+.token.string { color: #34d399 !important; }
+.token.number { color: #fb923c !important; }
+.token.function { color: #22d3ee !important; }
+.token.operator { color: rgba(255, 255, 255, 0.6) !important; }
+.token.punctuation { color: rgba(255, 255, 255, 0.35) !important; }
+.token.class-name { color: #f472b6 !important; }
+.token.builtin { color: #22d3ee !important; }
+.token.boolean { color: #fb923c !important; }
+.token.property { color: #a78bfa !important; }
+.token.parameter { color: #f9a8d4 !important; }
+.token.tag { color: #f472b6 !important; }
+.token.attr-name { color: #a78bfa !important; }
+.token.attr-value { color: #34d399 !important; }
+
+/* ─── Custom Scrollbar ───────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 99px; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(34, 211, 238, 0.3); }
+
+/* ─── Loading Shimmer ────────────────────────────────────────── */
+.shimmer-line {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(34, 211, 238, 0.12) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+  border-radius: 6px;
+}
+
+/* ─── Neural Orb Background ─────────────────────────────────── */
+.neural-orb-1 {
+  position: fixed;
+  top: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.04) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.neural-orb-2 {
+  position: fixed;
+  bottom: -20%;
+  right: -10%;
+  width: 55vw;
+  height: 55vw;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.04) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Grid Pattern ───────────────────────────────────────────── */
+.neural-grid-bg {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 0
+  );
+  background-size: 32px 32px;
+}
+
+/* ─── Focus Ring Override ────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(34, 211, 238, 0.5);
+  outline-offset: 2px;
+}
+
+/* ─── Selection ─────────────────────────────────────────────── */
+::selection {
+  background: rgba(34, 211, 238, 0.2);
+  color: white;
+}

@@ -15,7 +15,7 @@ Translate, explain, and comment code using a 100% local LLM — zero API keys, z
 [🚀 Live Demo](#) · [📖 Docs](#-how-it-works) · [🐛 Report Bug](../../issues) · [✨ Request Feature](../../issues)
 
 ---
-
+## 📸 Screenshots
 <img width="1600" height="676" alt="ai code " src="https://github.com/user-attachments/assets/517003f3-62b3-4a71-b9b9-6264e2126ccf" />
 <img width="1600" height="642" alt="ai code 1" src="https://github.com/user-attachments/assets/e3af9b92-36ed-4078-ba21-68574bd4aa1d" />
 
@@ -63,13 +63,8 @@ Translate, explain, and comment code using a 100% local LLM — zero API keys, z
 
 ---
 
-## 📸 Screenshots
 
-> *Screenshots coming soon. Clone the repo and run locally to see the full UI.*
 
-| Translate | Explain | Comment |
-|---|---|---|
-| ![Translate](public/ss-translate.png) | ![Explain](public/ss-explain.png) | ![Comment](public/ss-comment.png) |
 
 ---
 
